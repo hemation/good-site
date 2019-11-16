@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<html>
+    <head>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"  ></script>
+        <script>
+
+            google.load('visualization', '1.0', {'packages': ['corechart']});
+
+            google.setOnLoadCallback(initialize);
+
+               function drawChart(obj) {
+
+                // Create the data table.
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Topping');
+                data.addColumn('number', 'Slices');
+                data.addRows(obj);
+                // Set chart options
+                var options = {'title': 'السلام عليكم',
+                    'width': 400,
+                    'height': 300};
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+            
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////events
+
+            function initialize() {
+                $(function () {
+
+
+
+                    $(".one").click(function () {
+
+                        drawChart([
+                            ['"ابراهيم"', 30],
+                            ['محمد', 20],
+                            ['حسن', 10],
+                            ['حمدى', 15],
+                            ['ةخاشةث', 20],
+                             ['صص', 2],
+                              ['ص', 20]
+                        ]);
+                    })
+
+                    $(".tow").click(function () {
+
+
+                        drawChart([
+                            ['Mushrooms', 3],
+                            ['Onions', 1]
+
+                        ]);
+
+                    })
+                    $(".three").click(function () {
+
+                        drawChart([
+                            ['3mr', 3],
+                            ['ashmoon', 5]
+
+                        ]);
+
+
+                    })
+                })
+
+
+            }
+
+        </script>
+
+
+        <script type="text/javascript">
+
+
+
+
+
+
+
+        
+        </script>
+  
+
+    </head>
+
+    <body>
+
+        <button class='one'>one</button>
+        <button class='tow'>tow</button>
+        <button class='three'>three</button>
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div"></div>
+    </body>
+</html>
